@@ -1,6 +1,4 @@
-<app-header></app-header>
-
-<div id="carouselIndicators" class="carousel slide" data-ride="carousel">
+<div id="carouselIndicators" class="carousel slide" data-ride="carousel" data-pause="false">
   <ol class="carousel-indicators">
     <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselIndicators" data-slide-to="1"></li>
@@ -18,3 +16,5 @@
     </div>
   </div>
 </div>
+
+<button (click)="scroll()" id="scroll" class="fa fa-chevron-up"></button>

@@ -19,3 +19,8 @@
         background-color:#880808;
     } */
 }
+
+nav.navbar {
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}

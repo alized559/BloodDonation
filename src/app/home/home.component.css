@@ -9,3 +9,24 @@
         height: 100%;
     }
 }
+
+.fa-chevron-up {
+    display: none;
+    position: fixed;
+    bottom: 35px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: rgb(56, 56, 56);
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 20px;
+    transition: 0.5s;
+}
+
+.fa-chevron-up:hover {
+    background-color: #A52A2A;
+}

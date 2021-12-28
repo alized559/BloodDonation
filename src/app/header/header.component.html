@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-sm navbar-light fixed-top">
+<nav class="navbar navbar-expand-sm navbar-light fixed-top" id="nav">
   <div class="container">
-      <a class="navbar-brand" href="#"><img src="assets/images/logo.png" class="nav-img" width="50px"></a>
+      <a class="navbar-brand" routerLink="/home"><img src="assets/images/logo.png" class="nav-img" width="50px" id="navImg"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="background-color: white;">
           <span class="navbar-toggler-icon"></span>
       </button>
@@ -8,19 +8,19 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
-                  <a class="nav-link text-white" href="#">Home</a>
+                  <a class="nav-link text-white" routerLink="/home">Home</a>
               </li>
 
               <li class="nav-item">
-                  <a class="nav-link text-white" href="#">new Donor</a>
+                  <a class="nav-link text-white" routerLink="/newDonor">new Donor</a>
               </li>
 
               <li class="nav-item">
-                  <a class="nav-link text-white" href="#">Search Donor</a>
+                  <a class="nav-link text-white" routerLink="/searchDonor">Search Donor</a>
               </li>
 
               <li class="nav-item">
-                  <a class="nav-link text-white" href="#">Contact</a>
+                  <a class="nav-link text-white" routerLink="/contact">Contact</a>
               </li>
           </ul>
       </div>
