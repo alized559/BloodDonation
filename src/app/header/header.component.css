@@ -1,0 +1,21 @@
+.nav-link {
+    -webkit-transition: opacity 0.2s ease-in-out;
+    -moz-transition: opacity 0.2s ease-in-out;
+    -ms-transition: opacity 0.2s ease-in-out;
+    -o-transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
+    opacity: 0.7;
+}
+
+.nav-link:hover {
+    opacity: 1;
+}
+
+@media only screen and (max-width: 600px) {
+    .navbar-brand {
+        padding-left: 10px;
+    }
+    /* .navbar {
+        background-color:#880808;
+    } */
+}
