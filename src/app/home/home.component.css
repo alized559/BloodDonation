@@ -4,6 +4,10 @@
     border-radius: 100%;
 }
 
+.carousel-item {
+    height: 100vh;
+}
+
 @media only screen and (max-width: 600px) {
     .carousel-item img {
         height: 100%;
@@ -29,4 +33,16 @@
 
 .fa-chevron-up:hover {
     background-color: #A52A2A;
+}
+
+.container {
+    margin-top: 30px;
+}
+
+.register-link {
+    text-decoration: none;
+}
+
+.col img {
+    width: 400px;
 }
