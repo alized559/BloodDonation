@@ -43,6 +43,10 @@
     text-decoration: none;
 }
 
-.col img {
-    width: 400px;
+.first {
+    width: 350px;
+}
+
+.mid {
+    width: 250px;
 }

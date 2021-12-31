@@ -1,3 +1,9 @@
-<p>
-  adsPanel works!
-</p>
+<div class="list" *ngFor="let ad of ads">
+<div class="card" style="width: 90%;">
+  <div class="card-body">
+    <h5 class="card-title">{{ad.title}}</h5>
+    <p class="card-text">{{ad.body}}</p>
+    <a *ngIf="ad.link" href="{{ad.link}}" class="text-decoration-none">{{ad.linkText}}</a>
+  </div>
+</div>
+</div>

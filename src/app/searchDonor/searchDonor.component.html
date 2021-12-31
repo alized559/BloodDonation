@@ -4,52 +4,61 @@
 <button (click)="scroll()" id="scroll" class="fa fa-chevron-up"></button>
 
 <div class="container">
-  <form>
-    <div class="form-inline">
-      <div class="form-group">
-        <label for="select">Select the blood group</label>
-        <select #bloodGrp (change)="setDonorsByGroup(bloodGrp.value)" class="form-control mx-sm-3" id="select" required>
-          <option>Select</option>
-          <option>O+</option>
-          <option>O-</option>
-          <option>AB+</option>
-          <option>AB-</option>
-          <option>A+</option>
-          <option>A-</option>
-          <option>B+</option>
-          <option>B-</option>
-        </select>
+  <div class="row">
+    <div class="col">
+      <form>
+        <div class="form-inline">
+          <div class="form-group">
+            <label for="select">Select the blood group</label>
+            <select #bloodGrp (change)="setDonorsByGroup(bloodGrp.value)" class="form-control mx-sm-3" id="select" required>
+              <option>Select</option>
+              <option>O+</option>
+              <option>O-</option>
+              <option>AB+</option>
+              <option>AB-</option>
+              <option>A+</option>
+              <option>A-</option>
+              <option>B+</option>
+              <option>B-</option>
+            </select>
+          </div>
+        </div>
+      </form>
+    
+      <div class="profile">
+        <table class="table" *ngIf="sameGrpDonors.length != 0; else empty">
+          <tbody>
+            <tr *ngFor="let donor of sameGrpDonors">
+              <td>
+                <div class="row">
+                  <div class="col">
+                    <img src="assets/images/profile.jpg" width="150px" height="150px">
+                  </div>
+            
+                  <div class="col-10" id="name">
+                    <h5>{{donor.fName + " " + donor.lName}}</h5>
+                    <div class="input-group">
+                      <p>{{donor.email}}<br>{{donor.address}}</p>
+                      <button (click)="selectDonor(donor)" class="btn btn-danger" data-toggle="modal" data-target="#messageModal">Email</button>
+                    </div>
+                    <P>Blood Group: {{donor.bloodGrp}}</P>
+                  </div>
+                  <hr>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    
+        <ng-template #empty><p>Sorry! no donors found for {{bloodGrp.value}}</p></ng-template>
       </div>
     </div>
-  </form>
 
-  <div class="profile">
-    <table class="table" *ngIf="sameGrpDonors.length != 0; else empty">
-      <tbody>
-        <tr *ngFor="let donor of sameGrpDonors">
-          <td>
-            <div class="row">
-              <div class="col">
-                <img src="assets/images/profile.jpg" width="150px" height="150px">
-              </div>
-        
-              <div class="col-10" id="name">
-                <h5>{{donor.fName + " " + donor.lName}}</h5>
-                <div class="input-group">
-                  <p>{{donor.email}}<br>{{donor.address}}</p>
-                  <button (click)="selectDonor(donor)" class="btn btn-danger" data-toggle="modal" data-target="#messageModal">Email</button>
-                </div>
-                <P>Blood Group: {{donor.bloodGrp}}</P>
-              </div>
-              <hr>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
-    <ng-template #empty><p>Sorry! no donors found for {{bloodGrp.value}}</p></ng-template>
+    <div class="col" style="margin-left: 20%;">
+      <app-adsPanel></app-adsPanel>
+    </div>
   </div>
+  
 
   <div class="modal fade" id="messageModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">

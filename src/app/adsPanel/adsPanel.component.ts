@@ -1,3 +1,4 @@
+import { AdsDataService } from './../ads-data.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdsPanelComponent implements OnInit {
 
-  constructor() { }
+  ads;
+
+  constructor(public adsDataService: AdsDataService) { }
 
   ngOnInit() {
+    this.ads = this.adsDataService.getAds();
   }
 
 }
