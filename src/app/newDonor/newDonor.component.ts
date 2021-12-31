@@ -1,3 +1,4 @@
+import { DonorsDataService } from './../donors-data.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewDonorComponent implements OnInit {
 
-  constructor() { }
+  donor: {fName, lName, email, bloodGrp, address, info} = {fName: "",
+   lName: "", email: "", bloodGrp: "", address: "", info: ""};
+
+  constructor(public donorsDataService: DonorsDataService) { }
 
   ngOnInit() {
+  }
+
+  public addDonor() {
+    this.donorsDataService.addDonor(this.donor);
+    this.donor = {fName: "", lName: "", email: "", bloodGrp: "", address: "", info: ""};
   }
 
   ngAfterViewInit() {

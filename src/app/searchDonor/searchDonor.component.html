@@ -4,69 +4,52 @@
 <button (click)="scroll()" id="scroll" class="fa fa-chevron-up"></button>
 
 <div class="container">
-  <div class="form-inline">
-    <div class="form-group">
-      <label for="select">Select the blood group</label>
-      <select class="form-control mx-sm-3" id="select" required>
-        <option>O+</option>
-        <option>O-</option>
-        <option>AB+</option>
-        <option>AB-</option>
-        <option>A+</option>
-        <option>A-</option>
-        <option>B+</option>
-        <option>B-</option>
-      </select>
+  <form>
+    <div class="form-inline">
+      <div class="form-group">
+        <label for="select">Select the blood group</label>
+        <select #bloodGrp (change)="setDonorsByGroup(bloodGrp.value)" class="form-control mx-sm-3" id="select" required>
+          <option>Select</option>
+          <option>O+</option>
+          <option>O-</option>
+          <option>AB+</option>
+          <option>AB-</option>
+          <option>A+</option>
+          <option>A-</option>
+          <option>B+</option>
+          <option>B-</option>
+        </select>
+      </div>
     </div>
-  </div>
+  </form>
 
   <div class="profile">
     <table class="table">
       <tbody>
-        <tr>
+        <tr *ngFor="let donor of sameGrpDonors">
           <td>
             <div class="row">
               <div class="col">
                 <img src="assets/images/donation.jpg" width="150px" height="100px">
               </div>
         
-              <div class="col-12" id="name">
-                <h5>Ali Zein Al Dine</h5>
+              <div class="col-10" id="name">
+                <h5>{{donor.fName + " " + donor.lName}}</h5>
                 <div class="input-group">
-                  <p>alized559@gmail.com</p>
+                  <p>{{donor.email}}<br>{{donor.address}}</p>
                   <button class="btn btn-danger" data-toggle="modal" data-target="#messageModal">Email</button>
                 </div>
-                <P>Blood Group: O+</P>
+                <P>Blood Group: {{donor.bloodGrp}}</P>
               </div>
               <hr>
             </div>
           </td>
         </tr>
-
-        <tr>
-          <td>
-            <div class="row">
-              <div class="col">
-                <img src="assets/images/slideshow1.png" width="150px" height="100px">
-              </div>
-
-              <div class="col-12" id="name">
-                <h5>Ali Zein Al Dine</h5>
-                <div class="input-group">
-                  <p>alized559@gmail.com</p>
-                  <button class="btn btn-danger" data-toggle="modal" data-target="#messageModal">Email</button>
-                </div>
-                <P>Blood Group: O+</P>
-              </div>
-              <hr>
-            </div>
-        </td>
-        </tr>
       </tbody>
     </table>
   </div>
 
-  <div class="modal" id="messageModal" tabindex="-1" role="dialog">
+  <div class="modal fade" id="messageModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header bg-danger text-white">
@@ -91,7 +74,7 @@
                 <div class="input-group-prepend">
                   <label class="input-group-text">To:</label>
                 </div>
-                <input type="text" class="form-control" id="rEmail" placeholder="hello@live.com">
+                <input type="text" class="form-control" id="rEmail">
               </div>
             </div>
 

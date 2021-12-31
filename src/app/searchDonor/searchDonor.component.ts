@@ -1,3 +1,4 @@
+import { DonorsDataService } from './../donors-data.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchDonorComponent implements OnInit {
 
-  constructor() { }
+  sameGrpDonors;
+  selectedDonor;
+
+  constructor(public donorsDataService: DonorsDataService) { }
 
   ngOnInit() {
+  }
+
+  public setDonorsByGroup(group) {
+    this.sameGrpDonors = this.donorsDataService.getDonorsByGroup(group);
+  }
+
+  public selectDonor(donor) {
+    this.selectedDonor = donor;
   }
 
   ngAfterViewInit() {
