@@ -11,14 +11,37 @@ export class NewDonorComponent implements OnInit {
   donor: {fName, lName, email, bloodGrp, address, info} = {fName: "",
    lName: "", email: "", bloodGrp: "", address: "", info: ""};
 
+  isInfected = false;
+
+  submit = false;
+
   constructor(public donorsDataService: DonorsDataService) { }
 
   ngOnInit() {
   }
 
   public addDonor() {
-    this.donorsDataService.addDonor(this.donor);
-    this.donor = {fName: "", lName: "", email: "", bloodGrp: "", address: "", info: ""};
+    if (this.donor.fName.length == 0) {
+      alert("Enter First Name");
+    } else if (this.donor.lName.length == 0) {
+      alert("Enter Last Name");
+    } else if (this.donor.email.length == 0) {
+      alert("Enter Email");
+    } else if (this.donor.bloodGrp.length == 0) {
+      alert("Enter Blood Group");
+    } else if (this.donor.address.length == 0) {
+      alert("Enter Address");
+    } else if (this.isInfected == false) {
+      this.submit = true;
+      this.donorsDataService.addDonor(this.donor);
+      this.donor = {fName: "", lName: "", email: "", bloodGrp: "", address: "", info: ""};
+    } else {
+      this.submit = true;
+    }
+  }
+
+  public ifChecked() {
+    this.submit = false;
   }
 
   ngAfterViewInit() {

@@ -24,20 +24,20 @@
   </form>
 
   <div class="profile">
-    <table class="table">
+    <table class="table" *ngIf="sameGrpDonors.length != 0; else empty">
       <tbody>
         <tr *ngFor="let donor of sameGrpDonors">
           <td>
             <div class="row">
               <div class="col">
-                <img src="assets/images/donation.jpg" width="150px" height="100px">
+                <img src="assets/images/profile.jpg" width="150px" height="150px">
               </div>
         
               <div class="col-10" id="name">
                 <h5>{{donor.fName + " " + donor.lName}}</h5>
                 <div class="input-group">
                   <p>{{donor.email}}<br>{{donor.address}}</p>
-                  <button class="btn btn-danger" data-toggle="modal" data-target="#messageModal">Email</button>
+                  <button (click)="selectDonor(donor)" class="btn btn-danger" data-toggle="modal" data-target="#messageModal">Email</button>
                 </div>
                 <P>Blood Group: {{donor.bloodGrp}}</P>
               </div>
@@ -47,6 +47,8 @@
         </tr>
       </tbody>
     </table>
+
+    <ng-template #empty><p>Sorry! no donors found for {{bloodGrp.value}}</p></ng-template>
   </div>
 
   <div class="modal fade" id="messageModal" tabindex="-1" role="dialog">
@@ -74,7 +76,7 @@
                 <div class="input-group-prepend">
                   <label class="input-group-text">To:</label>
                 </div>
-                <input type="text" class="form-control" id="rEmail">
+                <input type="text" class="form-control" id="rEmail" placeholder="receiver email">
               </div>
             </div>
 
